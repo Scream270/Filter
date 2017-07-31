@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Liste 2 exo 2</title>
+   <script src="app.js"></script>
+   <script src="../../utility/utility.js"></script>
+   <script>
+
+          function dragstart_handler(ev) {
+// Add the target element's id to the data transfer object
+ev.dataTransfer.setData("text/plain", ev.target.id);
+ev.dropEffect = "move";
+}
+function dragover_handler(ev) {
+ev.preventDefault();
+// Set the dropEffect to move
+ev.dataTransfer.dropEffect = "move"
+}
+function drop_handler(ev) {
+ev.preventDefault();
+// Get the id of the target and add the moved element to the target's DOM
+var data = ev.dataTransfer.getData("text");
+ev.target.appendChild(document.getElementById(data));
+}
+
+   </script>
+</head>
+<body>
+
+  <ul id="target" draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);">ici</ul>
+  <ul>
+      <li id="p1" draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);">Jennifer</li>
+      <li id="p2" draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);">Meriem</li>
+      <li id="p3" draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);">Marc</li>
+      <li id="p4" draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);">Alexandra</li>
+      <li id="p5" draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);">Arnaud</li>
+      <li id="p6" draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);">Yanisse</li>
+      <li id="p7" draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);">Amina</li>
+      <li id="p8" draggable="true" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);">Barbilampiño</li>
+  </ul>
+
+</body>
+</html>
